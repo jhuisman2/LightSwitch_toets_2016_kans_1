@@ -1,0 +1,9 @@
+CinemaApp.Server.Properties.Service.lsml
+CinemaApp.Server.DataSources.CinemaData.Bioscoops.lsml
+CinemaApp.Server.DataSources.CinemaData.Films.lsml
+CinemaApp.Server.DataSources.CinemaData.Voorstellings.lsml
+CinemaApp.Server.DataSources.CinemaData.Zaals.lsml
+CinemaApp.Server.Properties.DataSources.CinemaData.lsml
+CinemaApp.Server.Properties.DataSources.ApplicationData.lsml
+CinemaApp.Server.DataSources.ApplicationData.BioscoopReviews.lsml
+CinemaApp.Server.DataSources.ApplicationData.Beoordelings.lsml

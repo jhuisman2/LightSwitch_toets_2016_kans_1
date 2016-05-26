@@ -1,0 +1,7 @@
+C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\Server\Reference\nl\Microsoft.LightSwitch.Extensions.Server.resources.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v5.0\Client\nl\Microsoft.LightSwitch.resources.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v5.0\Client\nl\Microsoft.LightSwitch.ExportProvider.resources.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v5.0\Server\nl\Microsoft.LightSwitch.ManifestService.resources.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v5.0\Server\nl\Microsoft.LightSwitch.Model.Xaml.resources.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v5.0\Server\nl\Microsoft.LightSwitch.Server.resources.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v5.0\Server\nl\Microsoft.LightSwitch.Server.Host.resources.dll

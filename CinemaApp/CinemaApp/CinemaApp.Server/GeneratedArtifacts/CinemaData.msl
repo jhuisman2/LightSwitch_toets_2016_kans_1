@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="CinemaData" StorageEntityContainer="CinemaDataStore">
+    <EntitySetMapping Name="Bioscoops">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Bioscoop)">
+        <MappingFragment StoreEntitySet="Bioscoops">
+          <ScalarProperty Name="BioscoopId" ColumnName="BioscoopId" />
+          <ScalarProperty Name="Naam" ColumnName="Naam" />
+          <ScalarProperty Name="Stad" ColumnName="Stad" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefoon" ColumnName="Telefoon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Films">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Film)">
+        <MappingFragment StoreEntitySet="Films">
+          <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+          <ScalarProperty Name="Titel" ColumnName="Titel" />
+          <ScalarProperty Name="Lengte" ColumnName="Lengte" />
+          <ScalarProperty Name="ReleaseDatum" ColumnName="ReleaseDatum" />
+          <ScalarProperty Name="DrieD" ColumnName="DrieD" />
+          <ScalarProperty Name="LeeftijdIndicatie" ColumnName="LeeftijdIndicatie" />
+          <ScalarProperty Name="Afbeelding" ColumnName="Afbeelding" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voorstellings">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Voorstelling)">
+        <MappingFragment StoreEntitySet="Voorstellings">
+          <ScalarProperty Name="VoorstellingId" ColumnName="VoorstellingId" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Tijdstip" ColumnName="Tijdstip" />
+          <ScalarProperty Name="Prijs" ColumnName="Prijs" />
+          <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+          <ScalarProperty Name="ZaalId" ColumnName="ZaalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zaals">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Zaal)">
+        <MappingFragment StoreEntitySet="Zaals">
+          <ScalarProperty Name="ZaalId" ColumnName="ZaalId" />
+          <ScalarProperty Name="ZaalNummer" ColumnName="ZaalNummer" />
+          <ScalarProperty Name="AantalStoelen" ColumnName="AantalStoelen" />
+          <ScalarProperty Name="DrieD" ColumnName="DrieD" />
+          <ScalarProperty Name="BioscoopId" ColumnName="BioscoopId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

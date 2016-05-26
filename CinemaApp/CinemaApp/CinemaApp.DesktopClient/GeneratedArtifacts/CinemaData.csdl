@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Bioscoop">
+    <Key>
+      <PropertyRef Name="BioscoopId" />
+    </Key>
+    <Property Name="BioscoopId" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naam" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="false" ConcurrencyMode="Fixed" />
+    <Property Name="Stad" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="false" ConcurrencyMode="Fixed" />
+    <Property Name="Email" Type="Edm.String" MaxLength="50" Unicode="false" ConcurrencyMode="Fixed" />
+    <Property Name="Telefoon" Type="Edm.String" MaxLength="50" Unicode="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Zaals" Relationship="LightSwitchApplication.FK_Zaal_Bioscoop" ToRole="Zaal" FromRole="Bioscoop" />
+  </EntityType>
+  <EntityType Name="Film">
+    <Key>
+      <PropertyRef Name="FilmId" />
+    </Key>
+    <Property Name="FilmId" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titel" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="false" ConcurrencyMode="Fixed" />
+    <Property Name="Lengte" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <Property Name="ReleaseDatum" Type="Edm.DateTime" Precision="0" ConcurrencyMode="Fixed" />
+    <Property Name="DrieD" Type="Edm.Byte" ConcurrencyMode="Fixed" />
+    <Property Name="LeeftijdIndicatie" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <Property Name="Afbeelding" Type="Edm.Binary" MaxLength="Max" />
+    <NavigationProperty Name="Voorstellings" Relationship="LightSwitchApplication.FK_Voorstelling_Film" ToRole="Voorstelling" FromRole="Film" />
+  </EntityType>
+  <EntityType Name="Voorstelling">
+    <Key>
+      <PropertyRef Name="VoorstellingId" />
+    </Key>
+    <Property Name="VoorstellingId" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Datum" Type="Edm.DateTime" Nullable="false" Precision="0" ConcurrencyMode="Fixed" />
+    <Property Name="Tijdstip" Type="Edm.Time" Nullable="false" Precision="7" ConcurrencyMode="Fixed" />
+    <Property Name="Prijs" Type="Edm.Decimal" Precision="19" Scale="4" ConcurrencyMode="Fixed" />
+    <Property Name="FilmId" Type="Edm.Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="ZaalId" Type="Edm.Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Film" Relationship="LightSwitchApplication.FK_Voorstelling_Film" ToRole="Film" FromRole="Voorstelling" />
+    <NavigationProperty Name="Zaal" Relationship="LightSwitchApplication.FK_Voorstelling_Zaal" ToRole="Zaal" FromRole="Voorstelling" />
+  </EntityType>
+  <EntityType Name="Zaal">
+    <Key>
+      <PropertyRef Name="ZaalId" />
+    </Key>
+    <Property Name="ZaalId" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZaalNummer" Type="Edm.Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="AantalStoelen" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <Property Name="DrieD" Type="Edm.Byte" ConcurrencyMode="Fixed" />
+    <Property Name="BioscoopId" Type="Edm.Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Voorstellings" Relationship="LightSwitchApplication.FK_Voorstelling_Zaal" ToRole="Voorstelling" FromRole="Zaal" />
+    <NavigationProperty Name="Bioscoop" Relationship="LightSwitchApplication.FK_Zaal_Bioscoop" ToRole="Bioscoop" FromRole="Zaal" />
+  </EntityType>
+  <Association Name="FK_Zaal_Bioscoop">
+    <End Role="Bioscoop" Type="LightSwitchApplication.Bioscoop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Zaal" Type="LightSwitchApplication.Zaal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bioscoop">
+        <PropertyRef Name="BioscoopId" />
+      </Principal>
+      <Dependent Role="Zaal">
+        <PropertyRef Name="BioscoopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voorstelling_Film">
+    <End Role="Film" Type="LightSwitchApplication.Film" Multiplicity="1" />
+    <End Role="Voorstelling" Type="LightSwitchApplication.Voorstelling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Film">
+        <PropertyRef Name="FilmId" />
+      </Principal>
+      <Dependent Role="Voorstelling">
+        <PropertyRef Name="FilmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voorstelling_Zaal">
+    <End Role="Zaal" Type="LightSwitchApplication.Zaal" Multiplicity="1" />
+    <End Role="Voorstelling" Type="LightSwitchApplication.Voorstelling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zaal">
+        <PropertyRef Name="ZaalId" />
+      </Principal>
+      <Dependent Role="Voorstelling">
+        <PropertyRef Name="ZaalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CinemaData" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Bioscoops" EntityType="LightSwitchApplication.Bioscoop" />
+    <EntitySet Name="Films" EntityType="LightSwitchApplication.Film" />
+    <EntitySet Name="Voorstellings" EntityType="LightSwitchApplication.Voorstelling" />
+    <EntitySet Name="Zaals" EntityType="LightSwitchApplication.Zaal" />
+    <AssociationSet Name="FK_Zaal_Bioscoop" Association="LightSwitchApplication.FK_Zaal_Bioscoop">
+      <End Role="Bioscoop" EntitySet="Bioscoops" />
+      <End Role="Zaal" EntitySet="Zaals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voorstelling_Film" Association="LightSwitchApplication.FK_Voorstelling_Film">
+      <End Role="Film" EntitySet="Films" />
+      <End Role="Voorstelling" EntitySet="Voorstellings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voorstelling_Zaal" Association="LightSwitchApplication.FK_Voorstelling_Zaal">
+      <End Role="Zaal" EntitySet="Zaals" />
+      <End Role="Voorstelling" EntitySet="Voorstellings" />
+    </AssociationSet>
+    <FunctionImport Name="Microsoft_LightSwitch_GetCanInformation" ReturnType="Edm.String" m:HttpMethod="GET">
+      <Parameter Name="dataServiceMembers" Type="Edm.String" Mode="In" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

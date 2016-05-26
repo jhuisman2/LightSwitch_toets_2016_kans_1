@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="Beoordelings" EntityType="ApplicationDataStore.Beoordeling" store:Type="Tables" Schema="dbo" Table="Beoordelings" />
+    <EntitySet Name="BioscoopReviews" EntityType="ApplicationDataStore.BioscoopReview" store:Type="Tables" Schema="dbo" Table="BioscoopReviews" />
+    <AssociationSet Name="BioscoopReview_Beoordeling" Association="ApplicationDataStore.BioscoopReview_Beoordeling">
+      <End Role="Beoordeling" EntitySet="Beoordelings" />
+      <End Role="BioscoopReview" EntitySet="BioscoopReviews" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Beoordeling">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReviewNaam" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="BioscoopReview">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReviewerNaam" Type="nvarchar" Nullable="false" MaxLength="255">
+      <UniqueIndexAnnotation xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </Property>
+    <Property Name="Bioscoop_BioscoopId" Type="int" Nullable="false">
+      <UniqueIndexAnnotation xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </Property>
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="BioscoopReview_Beoordeling" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="BioscoopReview_Beoordeling">
+    <End Role="Beoordeling" Type="ApplicationDataStore.Beoordeling" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="BioscoopReview" Type="ApplicationDataStore.BioscoopReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beoordeling">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BioscoopReview">
+        <PropertyRef Name="BioscoopReview_Beoordeling" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

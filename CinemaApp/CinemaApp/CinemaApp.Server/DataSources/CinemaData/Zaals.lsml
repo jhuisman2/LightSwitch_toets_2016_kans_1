@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="Zaal">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="ZaalId"
+        IsReadOnly="True"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="ZaalNummer"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="AantalStoelen"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="DrieD"
+        PropertyType=":Byte?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="Voorstellings"
+        Association="FK_Voorstelling_Zaal"
+        FromEnd="Zaal"
+        ToEnd="Voorstelling" />
+      <NavigationProperty
+        Name="Bioscoop"
+        Association="FK_Zaal_Bioscoop"
+        FromEnd="Zaal"
+        ToEnd="Bioscoop" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="FK_Voorstelling_Zaal">
+    <AssociationEnd
+      Name="Zaal"
+      Multiplicity="One"
+      EntityType="Zaal">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Voorstelling"
+      Multiplicity="Many"
+      EntityType="Voorstelling" />
+  </Association>
+  <EntityContainer
+    Name="CinemaData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="Zaals"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="Zaal" />
+    <AssociationSet
+      Name="FK_Voorstelling_Zaal"
+      Association="FK_Voorstelling_Zaal">
+      <AssociationSetEnd
+        Name="Zaal"
+        EntitySet="Zaals" />
+      <AssociationSetEnd
+        Name="Voorstelling"
+        EntitySet="Voorstellings" />
+    </AssociationSet>
+    <QueryOperation
+      Name="Zaals_Single"
+      ReturnType="Zaal">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="ZaalId" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="ZaalId" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Zaals" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="ZaalId"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'ZaalId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="Zaals_SingleOrDefault"
+      ReturnType="Zaal">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="ZaalId" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="ZaalId" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Zaals" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="ZaalId"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'ZaalId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="CinemaDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="Zaals">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="Zaal" />
+        <SsdlProperty
+          Name="ZaalId"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="int"
+          Property="Zaal/Properties[ZaalId]" />
+        <SsdlProperty
+          Name="ZaalNummer"
+          Nullable="False"
+          Type="int"
+          Property="Zaal/Properties[ZaalNummer]" />
+        <SsdlProperty
+          Name="AantalStoelen"
+          Nullable="True"
+          Type="int"
+          Property="Zaal/Properties[AantalStoelen]" />
+        <SsdlProperty
+          Name="DrieD"
+          Nullable="True"
+          Type="tinyint"
+          Property="Zaal/Properties[DrieD]" />
+        <SsdlForeignKeyProperty
+          Name="BioscoopId"
+          Nullable="False"
+          Type="int"
+          PropertyName="BioscoopId" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_Voorstelling_Zaal">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_Voorstelling_Zaal" />
+        <SsdlAssociationSetEnd
+          End="CinemaData/Members[FK_Voorstelling_Zaal]/Members[Zaal]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ZaalId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="CinemaData/Members[FK_Voorstelling_Zaal]/Members[Voorstelling]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ZaalId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

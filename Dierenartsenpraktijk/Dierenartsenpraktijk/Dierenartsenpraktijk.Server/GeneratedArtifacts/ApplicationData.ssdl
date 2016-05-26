@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="DierenartsSet" EntityType="ApplicationDataStore.Dierenarts" store:Type="Tables" Schema="dbo" Table="DierenartsSet" />
+    <EntitySet Name="Diers" EntityType="ApplicationDataStore.Dier" store:Type="Tables" Schema="dbo" Table="Diers" />
+    <EntitySet Name="Eigenaars" EntityType="ApplicationDataStore.Eigenaar" store:Type="Tables" Schema="dbo" Table="Eigenaars" />
+    <EntitySet Name="Behandelings" EntityType="ApplicationDataStore.Behandeling" store:Type="Tables" Schema="dbo" Table="Behandelings" />
+    <AssociationSet Name="Behandeling_Dier" Association="ApplicationDataStore.Behandeling_Dier">
+      <End Role="Dier" EntitySet="Diers" />
+      <End Role="Behandeling" EntitySet="Behandelings" />
+    </AssociationSet>
+    <AssociationSet Name="Behandeling_Dierenarts" Association="ApplicationDataStore.Behandeling_Dierenarts">
+      <End Role="Dierenarts" EntitySet="DierenartsSet" />
+      <End Role="Behandeling" EntitySet="Behandelings" />
+    </AssociationSet>
+    <AssociationSet Name="Dier_Eigenaar" Association="ApplicationDataStore.Dier_Eigenaar">
+      <End Role="Eigenaar" EntitySet="Eigenaars" />
+      <End Role="Dier" EntitySet="Diers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Dierenarts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Voornaam" Type="nvarchar" Nullable="false" MaxLength="255">
+      <UniqueIndexAnnotation xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </Property>
+    <Property Name="Achternaam" Type="nvarchar" Nullable="false" MaxLength="255">
+      <UniqueIndexAnnotation xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </Property>
+    <Property Name="Telefoonnummer" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Emailadres" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Salaris" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Dier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Naam" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Soort" Type="nvarchar" MaxLength="2" />
+    <Property Name="Gewicht" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Ras" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Geslacht" Type="nvarchar" MaxLength="255" />
+    <Property Name="Geboortedatum" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Dier_Eigenaar" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Eigenaar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Naam" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Adres" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Postcode" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Woonplaats" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Behandeling">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Omschrijving" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Behandeldatum" Type="datetime" Nullable="false" />
+    <Property Name="Bedrag" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Behandeling_Dier" Type="int" Nullable="false" />
+    <Property Name="Behandeling_Dierenarts" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Behandeling_Dier">
+    <End Role="Dier" Type="ApplicationDataStore.Dier" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Behandeling" Type="ApplicationDataStore.Behandeling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Behandeling">
+        <PropertyRef Name="Behandeling_Dier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Behandeling_Dierenarts">
+    <End Role="Dierenarts" Type="ApplicationDataStore.Dierenarts" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Behandeling" Type="ApplicationDataStore.Behandeling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dierenarts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Behandeling">
+        <PropertyRef Name="Behandeling_Dierenarts" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Dier_Eigenaar">
+    <End Role="Eigenaar" Type="ApplicationDataStore.Eigenaar" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Dier" Type="ApplicationDataStore.Dier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Eigenaar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dier">
+        <PropertyRef Name="Dier_Eigenaar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

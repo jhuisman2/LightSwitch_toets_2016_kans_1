@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.DesktopClient\Properties\CinemaData\Films.lsml" Checksum="797E1A4CFB3174533D13A4E860004842D7553DC4BD35D2366F603F699E0FA717" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.DesktopClient\Properties\CinemaData\Voorstellings.lsml" Checksum="072BE30C143EF0C9B1ED8B9CCEEAED57E88B206C890503F49A16D11A5CFED509" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.DesktopClient\Properties\Client.lsml" Checksum="B2A270D63A641E3774D478CA6995029630EE9F7278B971703FA45606FEF0C466" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.DesktopClient\Properties\Proxies.lsml" Checksum="186DC08EB35A6663D91927F5F2D0FB7734B0D59A9812CA02040CDCA4F7A540EE" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.DesktopClient\Screens\BioscoopReviews.lsml" Checksum="C03C4BB6DCF55C1088EB2C97D51FD450DE04A32544F7AB0F8C889FEEF8F41EA0" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.DesktopClient\Screens\FilmVoorstellingen.lsml" Checksum="2A09A9B27C6894F3BED2CBD0AEF25D49E9C4E6B7D21590FD2FBDCFB35A8B3779" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.DesktopClient\Screens\VoegFilmToe.lsml" Checksum="506F11941C078C1C2FDAB8B8661C7FA67F8A4AC5569C9937B486FE3E883587B3" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.DesktopClient\Screens\ZoekBioscopen.lsml" Checksum="37DE68A79443006EE3FAD3DCD2516F8B8DD0EC1CB9FD815191385004361288A4" />
+  </Documents>
+</ModelDocumentManifest>

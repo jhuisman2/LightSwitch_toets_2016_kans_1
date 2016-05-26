@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.Server\DataSources\ApplicationData\Beoordelings.lsml" Checksum="70009AB7850DA35F694AA48DFD61D5885145F32F42FFC5DF2C1EB25A5674430D" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.Server\DataSources\ApplicationData\BioscoopReviews.lsml" Checksum="8C5CA39C0539295BDEA6FBD2F1B0037BC5A7EEABB3105E9A9F4B1A87074C5123" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.Server\DataSources\CinemaData\Bioscoops.lsml" Checksum="11B4ED15F3833794ADD4B3A08E00E0B70A0AF1B56C3C7BA2C8E611C537C70E21" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.Server\DataSources\CinemaData\Films.lsml" Checksum="9668FA0FE2C336B25CC62FF5B187F303368AB553DAB1B73682615536B145AE60" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.Server\DataSources\CinemaData\Voorstellings.lsml" Checksum="CD484BA377F07C713CC54DBF145D0CFEF3EB674940191215558DC9045074C667" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.Server\DataSources\CinemaData\Zaals.lsml" Checksum="9C1CF8008743545EC28974EF1076DCAB63E75072C3C7FDEFFFA59DC786F53BD2" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.Server\Properties\DataSources\ApplicationData.lsml" Checksum="E6FEEAC3B4A850AAC5F0029259A0B9F8C1BD45F2950D17BD8D6664B9422E6AD6" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.Server\Properties\DataSources\CinemaData.lsml" Checksum="724B117457C1F48952EF352776F71E68D1F378078B54F0358CD7DDD929DAE0B3" />
+    <Document FullPath="C:\Users\hjw\documents\visual studio 2015\Projects\CinemaApp\CinemaApp\CinemaApp.Server\Properties\Service.lsml" Checksum="D534983EEB824DC4A23233B672532ACCE8318E04DB01F122BAA715AB2711C017" />
+  </Documents>
+</ModelDocumentManifest>

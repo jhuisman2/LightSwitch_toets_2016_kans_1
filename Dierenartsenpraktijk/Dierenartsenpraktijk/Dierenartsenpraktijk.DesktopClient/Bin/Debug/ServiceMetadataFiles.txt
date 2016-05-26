@@ -1,0 +1,11 @@
+Dierenartsenpraktijk.Server.Properties.Service.lsml
+Dierenartsenpraktijk.Server.Properties.DataSources.ApplicationData.lsml
+Dierenartsenpraktijk.Server.DataSources.ApplicationData.DierenartsSet.lsml
+Dierenartsenpraktijk.Server.DataSources.ApplicationData.Diers.lsml
+Dierenartsenpraktijk.Server.DataSources.ApplicationData.Eigenaars.lsml
+Dierenartsenpraktijk.Server.DataSources.ApplicationData.Behandelings.lsml
+Dierenartsenpraktijk.Server.DataSources.ApplicationData.EigenarenUitBreda.lsml
+Dierenartsenpraktijk.Server.DataSources.ApplicationData.EigenarenOpInput.lsml
+Dierenartsenpraktijk.Server.DataSources.ApplicationData.AlleKattenEnHonden.lsml
+Dierenartsenpraktijk.Server.DataSources.ApplicationData.MeerDanTienDieren.lsml
+Dierenartsenpraktijk.Server.DataSources.ApplicationData.DierenartsenBijAantalBehandelingenInput.lsml

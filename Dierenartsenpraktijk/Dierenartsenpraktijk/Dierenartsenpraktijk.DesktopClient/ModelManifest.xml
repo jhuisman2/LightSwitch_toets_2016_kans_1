@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="c:\users\hjw\documents\visual studio 2015\Projects\Dierenartsenpraktijk\Dierenartsenpraktijk\Dierenartsenpraktijk.DesktopClient\Properties\Client.lsml" Checksum="EE138847D66F12702DF4BFF9BE0B54ABB66631A571BA05208881B6DF9EA20FD3" />
+    <Document FullPath="c:\users\hjw\documents\visual studio 2015\Projects\Dierenartsenpraktijk\Dierenartsenpraktijk\Dierenartsenpraktijk.DesktopClient\Properties\Proxies.lsml" Checksum="734209A24AA031AE2EAE878F12920A510CF64B0B56303B33F4848F2FBC6D9D70" />
+    <Document FullPath="c:\users\hjw\documents\visual studio 2015\Projects\Dierenartsenpraktijk\Dierenartsenpraktijk\Dierenartsenpraktijk.DesktopClient\Properties\ApplicationData\Diers.lsml" Checksum="1937040D32E3E4AA1497822D954D68D47A89FAD4CDF3AD15F9FA2082A97AB93E" />
+    <Document FullPath="c:\users\hjw\documents\visual studio 2015\Projects\Dierenartsenpraktijk\Dierenartsenpraktijk\Dierenartsenpraktijk.DesktopClient\Properties\ApplicationData\Eigenaars.lsml" Checksum="82363E0669DB8E7BD40799238D18E8DE88C58A0782B92224D5765A0E0580E977" />
+    <Document FullPath="c:\users\hjw\documents\visual studio 2015\Projects\Dierenartsenpraktijk\Dierenartsenpraktijk\Dierenartsenpraktijk.DesktopClient\Properties\ApplicationData\DierenartsSet.lsml" Checksum="0D4BE433F9FC886959273E99B2AF1E2B8D29D612E1566C64E383D6BCE3C82F88" />
+  </Documents>
+</ModelDocumentManifest>

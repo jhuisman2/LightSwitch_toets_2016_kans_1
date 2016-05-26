@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="CinemaDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CinemaDataStore">
+    <EntitySet Name="Bioscoops" EntityType="CinemaDataStore.Bioscoop" store:Type="Tables" Schema="dbo" Table="Bioscoop" />
+    <EntitySet Name="Films" EntityType="CinemaDataStore.Film" store:Type="Tables" Schema="dbo" Table="Film" />
+    <EntitySet Name="Voorstellings" EntityType="CinemaDataStore.Voorstelling" store:Type="Tables" Schema="dbo" Table="Voorstelling" />
+    <EntitySet Name="Zaals" EntityType="CinemaDataStore.Zaal" store:Type="Tables" Schema="dbo" Table="Zaal" />
+    <AssociationSet Name="FK_Zaal_Bioscoop" Association="CinemaDataStore.FK_Zaal_Bioscoop">
+      <End Role="Bioscoop" EntitySet="Bioscoops" />
+      <End Role="Zaal" EntitySet="Zaals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voorstelling_Film" Association="CinemaDataStore.FK_Voorstelling_Film">
+      <End Role="Film" EntitySet="Films" />
+      <End Role="Voorstelling" EntitySet="Voorstellings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voorstelling_Zaal" Association="CinemaDataStore.FK_Voorstelling_Zaal">
+      <End Role="Zaal" EntitySet="Zaals" />
+      <End Role="Voorstelling" EntitySet="Voorstellings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bioscoop">
+    <Key>
+      <PropertyRef Name="BioscoopId" />
+    </Key>
+    <Property Name="BioscoopId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Naam" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Stad" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Telefoon" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Film">
+    <Key>
+      <PropertyRef Name="FilmId" />
+    </Key>
+    <Property Name="FilmId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Titel" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Lengte" Type="int" />
+    <Property Name="ReleaseDatum" Type="date" />
+    <Property Name="DrieD" Type="tinyint" />
+    <Property Name="LeeftijdIndicatie" Type="int" />
+    <Property Name="Afbeelding" Type="image" />
+  </EntityType>
+  <EntityType Name="Voorstelling">
+    <Key>
+      <PropertyRef Name="VoorstellingId" />
+    </Key>
+    <Property Name="VoorstellingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Datum" Type="date" Nullable="false" />
+    <Property Name="Tijdstip" Type="time" Nullable="false" />
+    <Property Name="Prijs" Type="money" />
+    <Property Name="FilmId" Type="int" Nullable="false" />
+    <Property Name="ZaalId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zaal">
+    <Key>
+      <PropertyRef Name="ZaalId" />
+    </Key>
+    <Property Name="ZaalId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ZaalNummer" Type="int" Nullable="false" />
+    <Property Name="AantalStoelen" Type="int" />
+    <Property Name="DrieD" Type="tinyint" />
+    <Property Name="BioscoopId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Zaal_Bioscoop">
+    <End Role="Bioscoop" Type="CinemaDataStore.Bioscoop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Zaal" Type="CinemaDataStore.Zaal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bioscoop">
+        <PropertyRef Name="BioscoopId" />
+      </Principal>
+      <Dependent Role="Zaal">
+        <PropertyRef Name="BioscoopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voorstelling_Film">
+    <End Role="Film" Type="CinemaDataStore.Film" Multiplicity="1">
+      <OnDeleteAnnotation Action="Unset" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Voorstelling" Type="CinemaDataStore.Voorstelling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Film">
+        <PropertyRef Name="FilmId" />
+      </Principal>
+      <Dependent Role="Voorstelling">
+        <PropertyRef Name="FilmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voorstelling_Zaal">
+    <End Role="Zaal" Type="CinemaDataStore.Zaal" Multiplicity="1">
+      <OnDeleteAnnotation Action="Unset" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Voorstelling" Type="CinemaDataStore.Voorstelling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zaal">
+        <PropertyRef Name="ZaalId" />
+      </Principal>
+      <Dependent Role="Voorstelling">
+        <PropertyRef Name="ZaalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

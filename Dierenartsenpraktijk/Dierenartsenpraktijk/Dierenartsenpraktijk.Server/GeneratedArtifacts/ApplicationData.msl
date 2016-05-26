@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="ApplicationData" StorageEntityContainer="ApplicationDataStore">
+    <EntitySetMapping Name="DierenartsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Dierenarts)">
+        <MappingFragment StoreEntitySet="DierenartsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+          <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+          <ScalarProperty Name="Telefoonnummer" ColumnName="Telefoonnummer" />
+          <ScalarProperty Name="Emailadres" ColumnName="Emailadres" />
+          <ScalarProperty Name="Salaris" ColumnName="Salaris" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diers">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Dier)">
+        <MappingFragment StoreEntitySet="Diers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naam" ColumnName="Naam" />
+          <ScalarProperty Name="Soort" ColumnName="Soort" />
+          <ScalarProperty Name="Gewicht" ColumnName="Gewicht" />
+          <ScalarProperty Name="Ras" ColumnName="Ras" />
+          <ScalarProperty Name="Geslacht" ColumnName="Geslacht" />
+          <ScalarProperty Name="Geboortedatum" ColumnName="Geboortedatum" />
+          <ScalarProperty Name="Dier_Eigenaar" ColumnName="Dier_Eigenaar" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Eigenaars">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Eigenaar)">
+        <MappingFragment StoreEntitySet="Eigenaars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naam" ColumnName="Naam" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="Woonplaats" ColumnName="Woonplaats" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Behandelings">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Behandeling)">
+        <MappingFragment StoreEntitySet="Behandelings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Omschrijving" ColumnName="Omschrijving" />
+          <ScalarProperty Name="Behandeldatum" ColumnName="Behandeldatum" />
+          <ScalarProperty Name="Bedrag" ColumnName="Bedrag" />
+          <ScalarProperty Name="Behandeling_Dier" ColumnName="Behandeling_Dier" />
+          <ScalarProperty Name="Behandeling_Dierenarts" ColumnName="Behandeling_Dierenarts" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

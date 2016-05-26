@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Beoordeling">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReviewNaam" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="BioscoopReviews" Relationship="LightSwitchApplication.BioscoopReview_Beoordeling" ToRole="BioscoopReview" FromRole="Beoordeling" />
+  </EntityType>
+  <EntityType Name="BioscoopReview">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReviewerNaam" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Bioscoop_BioscoopId" Type="Edm.Int32" Nullable="false" />
+    <Property Name="BioscoopReview_Beoordeling" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Beoordeling" Relationship="LightSwitchApplication.BioscoopReview_Beoordeling" ToRole="Beoordeling" FromRole="BioscoopReview" />
+  </EntityType>
+  <Association Name="BioscoopReview_Beoordeling">
+    <End Role="Beoordeling" Type="LightSwitchApplication.Beoordeling" Multiplicity="1" />
+    <End Role="BioscoopReview" Type="LightSwitchApplication.BioscoopReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beoordeling">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BioscoopReview">
+        <PropertyRef Name="BioscoopReview_Beoordeling" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ApplicationData" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Beoordelings" EntityType="LightSwitchApplication.Beoordeling" />
+    <EntitySet Name="BioscoopReviews" EntityType="LightSwitchApplication.BioscoopReview" />
+    <AssociationSet Name="BioscoopReview_Beoordeling" Association="LightSwitchApplication.BioscoopReview_Beoordeling">
+      <End Role="Beoordeling" EntitySet="Beoordelings" />
+      <End Role="BioscoopReview" EntitySet="BioscoopReviews" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
